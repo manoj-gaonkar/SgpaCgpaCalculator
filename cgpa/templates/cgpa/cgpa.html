@@ -8,7 +8,9 @@
     <title>SGPA</title>
 </head>
 <body>
-    <div class="w-screen h-screen bg-gray-900 flex justify-center items-center">
+    
+    <div class="w-screen h-screen bg-gray-900 flex justify-center items-center relative ">
+        <a href="{% url 'index' %}" class="absolute left-0 top-0 text-white">go back</a>
         <form  method="post" class='w-2/4'>
             {% csrf_token %}
             <div class="flex flex-col w-full">

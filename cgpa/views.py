@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 def cgpa(request):
     sgpa = [0]*8
@@ -6,8 +7,6 @@ def cgpa(request):
     gradepoints = [0]*8
     gradetotal = 0
     if request.method == "POST":
-        sgpaarray = request.POST.getlist('s[]')
-        print(sgpaarray)
         sgpa[0] = float(request.POST['s1'])
         sgpa[1] = float(request.POST['s2'])
         sgpa[2] = float(request.POST['s3'])
@@ -16,6 +15,8 @@ def cgpa(request):
         sgpa[5] = float(request.POST['s6'])
         sgpa[6] = float(request.POST['s7'])
         sgpa[7] = float(request.POST['s8'])
+        if sgpa[0]==0:
+            return redirect('cgpa')
         for i in range(8):
             if sgpa[i]!=0:
                 gradepoints[i]=assigngradepoints[i]
