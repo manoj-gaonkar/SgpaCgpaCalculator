@@ -5,16 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>SGPA {{sem}}</title>
 </head>
 <body>
-    <div>
-        sem is {{ sem }}
-    </div>
-    <div>
+    
+    <div class="w-screen h-screen bg-gray-900 flex flex-col justify-center items-center">
+        <form class='w-3/4 md:w-2/4' method="POST">
+        {% csrf_token %}
         {% for sub in subs  %}
-        <input type="text" placeholder = "{{sub}} ">
+        <div class="my-4 w-full ">
+        <label class="block text-blue-200 text-sm">{{ sub }}:</label>
+        <input type="text" placeholder = "{{sub}} " class=" text-sm w-full px-4 py-2 rounded outline-none focus:ring-2 focus:ring-blue-400" name="marks"   required>
+        </div>
         {% endfor %}
+        <input type="submit" class=" px-3 py-2 text-white bg-blue-500 rounded my-3 font-bold text-sm " value="Calculate">
+        </form>
     </div>
 </body>
 </html>

@@ -8,6 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-    result of sgpa sem
+    <div class='w-screen h-screen bg-gray-900 flex flex-col justify-center items-center '>
+        {% if sgpa > 9.0 %}
+            <p class="text-blue-200 font-bold text-4xl  ">Awsome</p>
+        {% elif sgpa > 8.0 %}
+            <p class="text-blue-200 font-bold text-4xl  ">Great</p>
+        {% elif sgpa > 7.0 %}
+            <p class="text-blue-200 font-bold text-4xl ">Nice</p>
+        {% else %}
+            <p class="text-blue-200 font-bold text-4xl ">Work hard</p>
+        {% endif %}
+        <p></p>
+        <div class=" text-white text-3xl mt-4 ">
+            SGPA : {{ sgpa|floatformat:2 }}
+        </div>
+        <div class=" text-gray-400 text-2xl  my-2">
+            Percentage : {{ percentage|floatformat:2 }}%
+        </div>
+
+    </div>
 </body>
 </html>

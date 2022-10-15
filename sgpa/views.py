@@ -7,11 +7,90 @@ def sgpaselect(request,sem):
     context = {
         'sem':sem
     }
-    if sem == 1:
-        sem12phy = ['18MAT11/21','18PHY12/22','18ELE13/23','18CIV14/24','18EGDL15/25','18PHYL16/26','18PHYL16/26','18ELEL17/27','18EGH18/28(ENGLISH)']
+    
+    if sem == 11:
+        sem12phy = ['18MAT11/21','18PHY12/22','18ELE13/23','18CIV14/24','18EGDL15/25','18PHYL16/26','18ELEL17/27','18EGH18/28(ENGLISH)']
         gradepoints = [4,4,3,3,3,1,1,1]
-        context ={
-            'subs': sem12phy,
-        }
+        context['subs'] = sem12phy
+        total = 0
+        if request.method == "POST":
+            submarks = request.POST.getlist('marks')
+            for i in range(len(sem12phy)):
+                submarks[i] = (int(submarks[i])//10)+1
+                total += int(submarks[i])*int(gradepoints[i])
+            sgpa = total/sum(gradepoints)
+            context = {
+                'sgpa':sgpa,
+                'percentage': (sgpa-0.75)*10,
+            }
+            return render(request,'sgpa/result.html',context)
+    elif sem == 12:
+        sem12chem = ['18MAT11/21','18CHE12/22','18CPS13/23','18ELN14/24','18ME15/25','18CHEL16/26','18CPL17/27','18EGH18/28(ENGLISH)']
+        gradepoints = [4,4,3,3,3,1,1,1]
+        context['subs'] = sem12chem
+        total = 0
+        if request.method == "POST":
+            submarks = request.POST.getlist('marks')
+            for i in range(len(sem12chem)):
+                submarks[i] = (int(submarks[i])//10)+1
+                total += int(submarks[i])*int(gradepoints[i])
+            sgpa = total/sum(gradepoints)
+            context = {
+                'sgpa':sgpa,
+                'percentage': (sgpa-0.75)*10,
+            }
+            return render(request,'sgpa/result.html',context)
+    elif sem == 3:
+        sem3 = ['18MAT31','18XX32','18XX33','18XX34','18XX35','18XX36','18XXL37','18XXL38','18CPC39/49 or Kannada']
+        gradepoints = [3,4,3,3,3,3,2,2,1]
+        context['subs'] = sem3
+        total = 0
+        if request.method == "POST":
+            submarks = request.POST.getlist('marks')
+            for i in range(len(sem3)):
+                submarks[i] = (int(submarks[i])//10)+1
+                total += int(submarks[i])*int(gradepoints[i])
+            sgpa = total/sum(gradepoints)
+            context = {
+                'sgpa':sgpa,
+                'percentage': (sgpa-0.75)*10,
+            }
+            return render(request,'sgpa/result.html',context)
+    elif sem == 4:
+        sem4 = ['18MAT41','18XX42','18XX43','18XX44','18XX45','18XX46','18XXL47','18XXL48','18CPC39/49 or Kannada']
+        gradepoints = [3,4,3,3,3,3,2,2,1]
+        context['subs'] = sem4
+        total = 0
+        if request.method == "POST":
+            submarks = request.POST.getlist('marks')
+            for i in range(len(sem4)):
+                submarks[i] = (int(submarks[i])//10)+1
+                total += int(submarks[i])*int(gradepoints[i])
+            sgpa = total/sum(gradepoints)
+            context = {
+                'sgpa':sgpa,
+                'percentage': (sgpa-0.75)*10,
+            }
+            return render(request,'sgpa/result.html',context)
+    elif sem == 5:
+        sem5 = ['18XX51','18XX52','18XX53','18XX54','18XX55','18XX56','18XXL57','18XXL58','Enviromental Studies']
+        gradepoints = [3,4,4,3,3,3,2,2,1]
+        context['subs'] = sem5
+        total = 0
+        if request.method == "POST":
+            submarks = request.POST.getlist('marks')
+            for i in range(len(sem5)):
+                submarks[i] = (int(submarks[i])//10)+1
+                total += int(submarks[i])*int(gradepoints[i])
+            sgpa = total/sum(gradepoints)
+            context = {
+                'sgpa':sgpa,
+                'percentage': (sgpa-0.75)*10,
+            }
+            return render(request,'sgpa/result.html',context)
+        
+
+
     return render(request,'sgpa/sgpasem.html',context)
+
     
