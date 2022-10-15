@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class='w-screen h-screen bg-gray-900 flex flex-col justify-center items-center '>
+        <a href="{% url 'index' %}" class="absolute right-5 bottom-5 px-2 py-1 md:px-4 md:py-2 bg-blue-500 rounded  text-black uppercase text-xs md:text-sm">go back</a>
         {% if cgpa > 9.0 %}
             <p class="text-blue-200 font-bold text-4xl  ">Awsome</p>
         {% elif cgpa > 8.0 %}
