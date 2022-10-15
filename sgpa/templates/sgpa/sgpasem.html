@@ -9,7 +9,12 @@
 </head>
 <body>
     <div>
-        select your semeester
+        sem is {{ sem }}
+    </div>
+    <div>
+        {% for sub in subs  %}
+        <input type="text" placeholder = "{{sub}} ">
+        {% endfor %}
     </div>
 </body>
 </html>

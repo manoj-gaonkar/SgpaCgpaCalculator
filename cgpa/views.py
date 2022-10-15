@@ -6,6 +6,7 @@ def cgpa(request):
     assigngradepoints = [20,20,24,24,25,24,20,18]
     gradepoints = [0]*8
     gradetotal = 0
+    avg = []
     if request.method == "POST":
         sgpa[0] = float(request.POST['s1'])
         sgpa[1] = float(request.POST['s2'])
@@ -15,6 +16,9 @@ def cgpa(request):
         sgpa[5] = float(request.POST['s6'])
         sgpa[6] = float(request.POST['s7'])
         sgpa[7] = float(request.POST['s8'])
+        # for i in range(8):
+        #     if i%2!=0:
+
         if sgpa[0]==0:
             return redirect('cgpa')
         for i in range(8):
@@ -24,8 +28,10 @@ def cgpa(request):
             gradetotal += gradepoints[i]*sgpa[i]
         cgpa = gradetotal/sum(gradepoints)
         print(cgpa)
+        percentage = (cgpa-0.75)*10
         context = {
             'cgpa':cgpa,
+            'percentage':percentage,
         }
         return render(request,'cgpa/result.html',context)
     else:
