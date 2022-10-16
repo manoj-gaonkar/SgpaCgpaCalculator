@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>SGPA</title>
-  </head>
-  <body>
-    <div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-900 ">
+{% extends 'sgpa/base.html' %}
+{% block content %}
+<div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-900 ">
         <a href="{% url 'index' %}" class="absolute right-5 bottom-5 px-2 py-1 md:px-4 md:py-2 bg-blue-500 rounded  text-black uppercase text-xs md:text-sm">go back</a>
 
       <div class=" text-blue-200 text-2xl font-bold ">
@@ -25,5 +17,4 @@
         <a href="{% url 'sgpaselect' 8 %}" class="inline-block bg-blue-500 px-3 py-2 text-center rounded text-white text-sm font-bold w-full">SEM 8</a>
       </div>
     </div>
-  </body>
-</html>
+{% endblock content %}

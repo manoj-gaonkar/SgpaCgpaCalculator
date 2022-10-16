@@ -8,9 +8,12 @@
     <title>SGPA/CGPA calculator</title>
 </head>
 <body>
-    <div class="w-screen h-screen bg-gray-900 flex justify-center items-center">
-        <a href="{% url 'sgpa' %}" class=" font-bold text-xl text-white bg-blue-500 py-1 px-5 rounded mx-4 ">SGPA</a>
-        <a href="{% url 'cgpa' %}" class=" font-bold text-xl text-white bg-blue-500 py-1 px-5 rounded mx-4 ">CGPA</a>
+    <div class="w-screen h-screen bg-gray-900 flex flex-col justify-center items-center">
+        <a href="{% url 'sgpa' %}" class=" font-bold text-xl text-white bg-blue-500 py-1 px-5 rounded my-4 ">SGPA</a>
+        <a href="{% url 'cgpa' %}" class=" font-bold text-xl text-white bg-blue-500 py-1 px-5 rounded my-4 ">CGPA</a>
     </div>
+    <p class="absolute bottom-4  text-[rgba(255,255,255,0.5)] left-2/4 translate-x-[-50%] text-xs ">
+        <span>	&#169; </span>Manoj Gaonkar
+    </p>
 </body>
 </html>

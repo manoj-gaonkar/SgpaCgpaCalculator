@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-</head>
-<body>
+
+
+{% extends 'sgpa/base.html' %}
+{% block content %}
     <div class='w-screen h-screen bg-gray-900 flex flex-col justify-center items-center '>
     <a href="{% url 'index' %}" class="absolute right-5 bottom-5 px-2 py-1 md:px-4 md:py-2 bg-blue-500 rounded  text-black uppercase text-xs md:text-sm">go back</a>    
 
@@ -29,5 +23,4 @@
         </div>
 
     </div>
-</body>
-</html>
+{% endblock content %}
