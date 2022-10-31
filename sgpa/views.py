@@ -11,14 +11,18 @@ def sgpaselect(request,sem):
     if sem == 11:
         sem12phy = ['18MAT11/21','18PHY12/22','18ELE13/23','18CIV14/24','18EGDL15/25','18PHYL16/26','18ELEL17/27','18EGH18/28(ENGLISH)']
         gradepoints = [4,4,3,3,3,1,1,1]
+        sumgradepoints = sum(gradepoints)
         context['subs'] = sem12phy
         total = 0
         if request.method == "POST":
             submarks = request.POST.getlist('marks')
+            for i in range(len(submarks)):
+                if int(submarks[i])<=35:
+                    gradepoints[i]=0
             for i in range(len(sem12phy)):
                 submarks[i] = (int(submarks[i])//10)+1
                 total += int(submarks[i])*int(gradepoints[i])
-            sgpa = total/sum(gradepoints)
+            sgpa = total/sumgradepoints
             context = {
                 'sgpa':sgpa,
                 'percentage': (sgpa-0.75)*10,
