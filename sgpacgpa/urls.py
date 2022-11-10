@@ -8,4 +8,6 @@ urlpatterns = [
     path('',views.index,name = 'index'),
     path('cgpa/',include('cgpa.urls')),
     path('sgpa/',include('sgpa.urls')),
+    path('signup/',views.signup,name="signup"),
+path('login/',views.login,name="login"),
 ]
