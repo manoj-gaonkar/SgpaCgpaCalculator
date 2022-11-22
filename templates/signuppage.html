@@ -8,8 +8,15 @@
     <title>Sign up</title>
 </head>
 <body>
-    <div>
-        {{ form }}
+    <div class="w-screen h-screen flex justify-center items-center">
+        <form action="" method="post" class="W-3/4 bg-gray-500">
+            <div class="w-full bg-red-600">
+                <div>
+                    <label for="usn">USN</label>
+                    <div>{{form.username}}</div>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
